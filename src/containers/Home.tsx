@@ -5,11 +5,12 @@ import * as animationData from '../hair-animation.json';
 
 export default withSiteData(() => (
   <div>
-    <Lottie options={{
-      loop: true,
-      autoplay: true, 
-      animationData: animationData
-    }}
+    <Lottie
+      options={{
+        loop: true,
+        autoplay: true, 
+        animationData: animationData
+      }}
       height={800}
       width={800}
       />
