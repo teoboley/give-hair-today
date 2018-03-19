@@ -1,11 +1,17 @@
 import React from 'react'
+import Lottie from 'react-lottie';
 import { withSiteData } from 'react-static'
-
-import logoImg from '../logo.png'
+import * as animationData from '../hair-animation.json';
 
 export default withSiteData(() => (
   <div>
-    <h1 style={{ textAlign: 'center' }}>Welcome to</h1>
-    <img src={logoImg} alt="" />
+    <Lottie options={{
+      loop: true,
+      autoplay: true, 
+      animationData: animationData
+    }}
+      height={800}
+      width={800}
+      />
   </div>
 ))
