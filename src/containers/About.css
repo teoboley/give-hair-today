@@ -1,0 +1,26 @@
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.about-container * {
+  margin: 10px;
+}
+
+.born,
+.tech,
+.derma {
+  width: 500px;
+}
+
+blockquote {
+  color: gray;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 16pt;
+}
+
+.block-wrap {
+  display: flex;
+}
