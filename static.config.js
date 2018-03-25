@@ -7,7 +7,7 @@ const typescriptWebpackPaths = require('./webpack.config.js')
 export default {
   entry: path.join(__dirname, 'src', 'index.tsx'),
   getSiteData: () => ({
-    title: 'React Static',
+    title: 'Give Hair Today',
   }),
   getRoutes: async () => {
     const { data: posts } = await axios.get(
