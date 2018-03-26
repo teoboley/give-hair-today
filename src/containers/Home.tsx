@@ -3,6 +3,7 @@ import Lottie from 'react-lottie';
 import { withSiteData } from 'react-static'
 import Button from 'material-ui/Button';
 import Modal from 'react-modal';
+import CloseIcon from 'material-ui-icons/Close';
 
 import PagedForm from "../components/PagedForm";
 
@@ -63,17 +64,17 @@ export default withSiteData(
                 marginRight: '-50%',
                 transform: 'translate(-50%, -50%)',
                 background: "none",
-                border: "none"
+                border: "none",
+                display: 'flex',
               },
               overlay: {
                 zIndex: 4,
                 background: "rgba(0, 0, 0, 0.75)",
               }
             }}
-            contentLabel="Example Modal"
           >
-            <button onClick={() => { }}>close</button><br/>
             <iframe src="https://drive.google.com/file/d/1lhFFoHqQvzTQmyPeI-jpEyfVGEHMV14M/preview" width="640" height="480"></iframe>
+            <Button variant="fab" color="secondary" style={{ margin: 10 }} onClick={this.handleCloseModal}><CloseIcon /></Button>
           </Modal>
           <section>
             <svg viewBox="0 0 568 328" version="1.1">

@@ -18,7 +18,10 @@ export default (theme: Theme) => {
     },
     form: {
       // marginLeft: 50,
-      maxWidth: 400
+      maxWidth: 400,
+      display: "flex",
+      flexDirection: 'column',
+      justifyContent: "space-between"
     },
     formControl: {
       margin: theme.spacing.unit / 2,
