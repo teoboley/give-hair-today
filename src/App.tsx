@@ -12,11 +12,6 @@ const App = () => (
     <Router>
       <div>
         <CssBaseline />
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/blog">Blog</Link>
-        </nav>
         <div className="content">
           <Routes />
         </div>

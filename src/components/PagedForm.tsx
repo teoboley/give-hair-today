@@ -1,6 +1,7 @@
 import React from 'react';
 import { withFormik, FormikProps, FormikErrors } from 'formik';
 import Lottie from 'react-lottie';
+import Button from 'material-ui/Button';
 
 import { withStyles, StyledComponentProps } from 'material-ui/styles';
 import Input, { InputLabel } from 'material-ui/Input';
@@ -49,62 +50,67 @@ const InnerForm = withStyles(styles, { withTheme: true })(({
 }: FormikProps<Values> & StyledComponentProps<any>) => {
   return (
     <Paper className={classes.root}>
-      <Lottie
-          options={{
-            loop: true,
-            autoplay: true, 
-            animationData: animationData
-          }}
-          height={200}
-          width={200}
-        />
+      <div className={classes.profile}>
+        <img src="http://via.placeholder.com/200x200" width={200} height={200}/>
+      </div>
       <form className={classes.form} autoComplete="off" onSubmit={handleSubmit}>
         <FormControl className={classes.formControl} error={touched.groupSize && errors.groupSize}>
           <InputLabel htmlFor="groupSize-input">Group Size</InputLabel>
           <Input id="groupSize-input" name="groupSize" value={values.groupSize} onChange={handleChange} onBlur={handleBlur} />
           {touched.groupSize && errors.groupSize ? <FormHelperText>{errors.groupSize}</FormHelperText> : null}
         </FormControl>
-        <div>
-          {Object.keys(availableOptions).map(option => {
-            const availableOptionSelections = availableOptions[option];
-            const currentSelection = values.packageOptions[option];
-            const selected = currentSelection != null && currentSelection.length > 0;
+          <div>
+            {Object.keys(availableOptions).map(option => {
+              const availableOptionSelections = availableOptions[option];
+              const currentSelection = values.packageOptions[option];
+              const selected = currentSelection != null && currentSelection.length > 0;
 
-            return (
-              <Paper className={classes.tag}>
-              <span
-                key={option}
-                // onDelete={selected ? () => {
-                //   // handle delete
-                //   setValues({
-                //     ...values,
-                //     packageOptions: {
-                //       ...values.packageOptions,
-                //       [option]: []
-                //     }
-                //   })
-                // } : null}
-                onClick={!selected ? () => {
-                  // handle click
-                  setValues({
-                    ...values,
-                    packageOptions: {
-                      ...values.packageOptions,
-                      [option]: ["arbitrary selection"]
-                    }
-                  });
-                } : null}
-                
-                style={{ backgroundColor: selected ? "red" : null }}
-              >
-                {option}
-              </span>
-              </Paper>
-            );
-          })}
-        </div>
+              return (
+                <div className={classes.tag} key={option}>
+                  <span onClick={!selected ? () => {
+                    // handle click
+                    setValues({
+                      ...values,
+                      packageOptions: {
+                        ...values.packageOptions,
+                        [option]: ["arbitrary selection"]
+                      }
+                    });
+                  } : null} >
+                    {option}
+                  </span>
+                  {selected ?
+                    <button onClick={() => {
+                      // handle delete
+                      setValues({
+                        ...values,
+                        packageOptions: {
+                          ...values.packageOptions,
+                          [option]: []
+                        }
+                      })
+                    }}>x</button>
+                    : null}
+                </div>
+              );
+            })}
+          </div>
+        <FormControl className={classes.formControl} error={touched.groupSize && errors.groupSize}>
+          <InputLabel htmlFor="groupSize-input">Half-Life</InputLabel>
+          <Input id="groupSize-input" name="groupSize" value={values.groupSize} onChange={handleChange} onBlur={handleBlur} />
+          {touched.groupSize && errors.groupSize ? <FormHelperText>{errors.groupSize}</FormHelperText> : null}
+        </FormControl>
+        <div>
+      <Button variant="raised" color="default">
+          Back
+      </Button>
+        <Button variant="raised" color="primary">
+          Next
+      </Button>
+      </div>
       </form>
-    </Paper>);
+    </Paper>
+  );
 });
 
 export default withFormik<{}, Values>({
@@ -138,5 +144,5 @@ export default withFormik<{}, Values>({
       }
     );
     */
-  },
+  }
 })(InnerForm);
