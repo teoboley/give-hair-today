@@ -1,5 +1,6 @@
 import React from 'react'
 import { withSiteData } from 'react-static'
+import Lottie from "react-lottie";
 import Button from 'material-ui/Button';
 import Modal from 'react-modal';
 import CloseIcon from 'material-ui-icons/Close';
@@ -11,14 +12,57 @@ import "./About.css";
 
 type State = {
   showModal: boolean;
+  loading: boolean;
 }
+
+import * as animationData from '../hair-animation.json';
+
+
+class Loader extends React.Component<any, {}>{
+  componentDidMount() {
+    (this.refs.lottie as any).forceUpdate();
+  }
+
+  render() {
+    const { loading, onComplete } = this.props;
+
+    return (
+      <div className={`loader ${loading ? "visible" : "hidden"}`}>
+      <div style={{ visibility: loading ? "visible" : "hidden" }}>
+      <Lottie
+        ref="lottie"
+        options={{
+          autoplay: true,
+          animationData: animationData
+        }}
+        
+        height={800}
+        width={800}
+        speed={1.75}
+        eventListeners={
+          [
+            {
+              eventName: 'loopComplete',
+              callback: () => {
+                console.log("COMPLETE")
+                onComplete();
+              },
+            },
+          ]
+        }
+      />
+      </div></div>);
+  }
+}
+
 
 export default withSiteData(
   class Home extends React.Component<any, State> {
     constructor (props: any) {
       super(props);
       this.state = {
-        showModal: false
+        showModal: false,
+        loading: true
       };
       
       this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -36,6 +80,7 @@ export default withSiteData(
     render() {
       return (
         <div className="Home">
+          { Loader != null && <Loader loading={this.state.loading} onComplete={() => this.setState({ loading: false })}/> }
           <Modal
             isOpen={this.state.showModal}
             onRequestClose={this.handleCloseModal}
