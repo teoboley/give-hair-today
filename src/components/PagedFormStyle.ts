@@ -51,6 +51,15 @@ export default (theme: Theme) => {
     },
     progress: {
       marginTop: 50,
+    },
+    groupSelect: {
+      display: "flex"
+    },
+    groupView: {
+      margin: 10
+    },
+    formHeader: {
+      color: "gray"
     }
   };
 };

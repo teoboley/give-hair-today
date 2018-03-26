@@ -8,6 +8,9 @@ import Input, { InputLabel } from 'material-ui/Input';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import { FormControl, FormHelperText } from 'material-ui/Form';
 import Paper from 'material-ui/Paper';
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+
 
 import styles from "./PagedFormStyle";
 import * as animationData from '../hair-animation.json';
@@ -19,21 +22,27 @@ type Values = {
 }
 
 type PkgOptions = {
-  hold?: string[];
-  volume?: string[];
-  texture?: string[];
-  curl?: string[];
-  smooth?: string[];
-  blowdry?: string[];
+  [key: string]: string[]
 }
 
 const availableOptions: PkgOptions = {
-  hold: [""],
-  volume: [],
-  texture: [],
-  curl: [],
-  smooth: [],
-  blowdry: []
+  "light hold": [],
+  "strong hold": [],
+  "small volume": [],
+  "medium volume": [],
+  "big volume": [],
+  "thick texture": [],
+  "dry texture": [],
+  "curly": [],
+  "extra curly": [],
+  "smooth it out": [],
+  "red color": [],
+  "purple color": [],
+  "white color": [],
+  "green color": [],
+  "grey color": [],
+  "borwn color": [],
+  "blonde color": []
 }
 
 type Props = FormikProps<Values> & StyledComponentProps<any> & { style: any };
@@ -72,7 +81,7 @@ const InnerForm = withStyles(styles, { withTheme: true })(
       const pages = [
         <FormControl className={classes.formControl} error={touched.groupSize && errors.groupSize}>
           <InputLabel htmlFor="groupSize-input">Group Size</InputLabel>
-          <Input id="groupSize-input" name="groupSize" value={values.groupSize} onChange={handleChange} onBlur={handleBlur} />
+          <Input id="groupSize-input" name="groupSize" value={values.groupSize} renderValue={value => `${value} packages`} onChange={handleChange} onBlur={handleBlur} />
           {touched.groupSize && errors.groupSize ? <FormHelperText>{errors.groupSize}</FormHelperText> : null}
         </FormControl>,
         <div>
@@ -112,12 +121,24 @@ const InnerForm = withStyles(styles, { withTheme: true })(
           })}
         </div>,
         <FormControl className={classes.formControl} error={touched.halfLife && errors.halfLife}>
-          <InputLabel htmlFor="groupSize-input">Half-Life</InputLabel>
-          <Input id="halfLife-input" name="halfLife" value={values.halfLife} onChange={handleChange} onBlur={handleBlur} />
+          <InputLabel htmlFor="halfLife-input">Half-Life</InputLabel>
+          <Input id="halfLife-input" name="halfLife" value={values.halfLife} renderValue={value => `${value} weeks`} onChange={handleChange} onBlur={handleBlur} />
           {touched.halfLife && errors.halfLife ? <FormHelperText>{errors.halfLife}</FormHelperText> : null}
         </FormControl>,
         <div>
-          Checkout
+          <h2 className={classes.formHeader}>Checkout & Charity Selection</h2>
+          <List component="nav">
+          <ListItem button>
+            <ListItemText primary="Locks of Love" />
+          </ListItem>
+          <Divider/>
+          <ListItem button>
+            <ListItemText primary="Wigs for Kids" />
+          </ListItem>
+          <ListItem button>
+            <ListItemText primary="Beautiful Lengths" />
+          </ListItem>
+        </List>
         </div>
       ];
     
