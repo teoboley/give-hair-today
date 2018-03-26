@@ -1,6 +1,5 @@
 import React from 'react'
 import { Router, Link } from 'react-static'
-import Lottie from 'react-lottie';
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
 import CssBaseline from 'material-ui/CssBaseline';
@@ -13,6 +12,13 @@ type State = {
   loading: boolean;
 }
 
+let Lottie: any;
+
+if (typeof document !== 'undefined') {
+  Lottie = require('react-lottie').default;
+}
+
+ 
 class App extends React.Component<any, State> {
   constructor(props: any) {
     super(props);
@@ -30,7 +36,7 @@ class App extends React.Component<any, State> {
     return (
       <div>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
-          { typeof document !== 'undefined'  && 
+          { Lottie != null && 
           <div className="loader" style={ this.state.loading ? { opacity: 1 } : { opacity: 0, pointerEvents: "none" }}>
             <div style={{ visibility: this.state.loading ? "visible" : "hidden" }}>
             <Lottie
