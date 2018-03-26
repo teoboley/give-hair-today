@@ -16,6 +16,7 @@ import * as animationData from '../hair-animation.json';
 type Values = {
   groupSize: number;
   packageOptions: PkgOptions;
+  halfLife: number;
 }
 
 type PkgOptions = {
@@ -51,7 +52,7 @@ const InnerForm = withStyles(styles, { withTheme: true })(({
   return (
     <Paper className={classes.root}>
       <div className={classes.profile}>
-        <img src="http://via.placeholder.com/200x200" width={200} height={200}/>
+        <img src="http://via.placeholder.com/200x200" width={200} height={200} />
       </div>
       <form className={classes.form} autoComplete="off" onSubmit={handleSubmit}>
         <FormControl className={classes.formControl} error={touched.groupSize && errors.groupSize}>
@@ -59,67 +60,72 @@ const InnerForm = withStyles(styles, { withTheme: true })(({
           <Input id="groupSize-input" name="groupSize" value={values.groupSize} onChange={handleChange} onBlur={handleBlur} />
           {touched.groupSize && errors.groupSize ? <FormHelperText>{errors.groupSize}</FormHelperText> : null}
         </FormControl>
-          <div>
-            {Object.keys(availableOptions).map(option => {
-              const availableOptionSelections = availableOptions[option];
-              const currentSelection = values.packageOptions[option];
-              const selected = currentSelection != null && currentSelection.length > 0;
+        <div>
+          {Object.keys(availableOptions).map(option => {
+            const availableOptionSelections = availableOptions[option];
+            const currentSelection = values.packageOptions[option];
+            const selected = currentSelection != null && currentSelection.length > 0;
 
-              return (
-                <div className={classes.tag} key={option}>
-                  <span onClick={!selected ? () => {
-                    // handle click
+            return (
+              <div className={classes.tag} key={option}>
+                <span onClick={!selected ? () => {
+                  // handle click
+                  setValues({
+                    ...values,
+                    packageOptions: {
+                      ...values.packageOptions,
+                      [option]: ["arbitrary selection"]
+                    }
+                  });
+                } : null} >
+                  {option}
+                </span>
+                {selected ?
+                  <button onClick={() => {
+                    // handle delete
                     setValues({
                       ...values,
                       packageOptions: {
                         ...values.packageOptions,
-                        [option]: ["arbitrary selection"]
+                        [option]: []
                       }
-                    });
-                  } : null} >
-                    {option}
-                  </span>
-                  {selected ?
-                    <button onClick={() => {
-                      // handle delete
-                      setValues({
-                        ...values,
-                        packageOptions: {
-                          ...values.packageOptions,
-                          [option]: []
-                        }
-                      })
-                    }}>x</button>
-                    : null}
-                </div>
-              );
-            })}
-          </div>
-        <FormControl className={classes.formControl} error={touched.groupSize && errors.groupSize}>
+                    })
+                  }}>x</button>
+                  : null}
+              </div>
+            );
+          })}
+        </div>
+        <FormControl className={classes.formControl} error={touched.halfLife && errors.halfLife}>
           <InputLabel htmlFor="groupSize-input">Half-Life</InputLabel>
-          <Input id="groupSize-input" name="groupSize" value={values.groupSize} onChange={handleChange} onBlur={handleBlur} />
-          {touched.groupSize && errors.groupSize ? <FormHelperText>{errors.groupSize}</FormHelperText> : null}
+          <Input id="halfLife-input" name="halfLife" value={values.halfLife} onChange={handleChange} onBlur={handleBlur} />
+          {touched.halfLife && errors.halfLife ? <FormHelperText>{errors.halfLife}</FormHelperText> : null}
         </FormControl>
-        <div>
-      <Button variant="raised" color="default">
-          Back
-      </Button>
-        <Button variant="raised" color="primary">
-          Next
-      </Button>
-      </div>
+        <div className={classes.buttonBar}>
+          <Button variant="raised" color="default">
+            Back
+          </Button>
+          <Button variant="raised" color="primary">
+            Next
+          </Button>
+        </div>
       </form>
     </Paper>
   );
 });
 
 export default withFormik<{}, Values>({
-  mapPropsToValues: props => ({ groupSize: 0, packageOptions: {} }),
+  mapPropsToValues: props => ({ groupSize: 0, packageOptions: {}, halfLife: 0 }),
   validate: (values, props) => {
     const errors: FormikErrors<Values> = {};
     if (!values.groupSize) {
       errors.groupSize = 'Required';
     }
+
+    if (!values.halfLife) {
+      errors.halfLife = 'Required';
+    }
+
     return errors;
   },
   handleSubmit: (

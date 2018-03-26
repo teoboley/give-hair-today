@@ -41,6 +41,10 @@ export default (theme: Theme) => {
       paddingRight: 10,
       margin: 5,
       minWidth: 50
+    },
+    buttonBar: {
+      display: "flex",
+      justifyContent: "space-between"
     }
   };
 };

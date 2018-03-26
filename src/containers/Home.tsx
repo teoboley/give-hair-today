@@ -24,15 +24,41 @@ const withLoader = (app) => {
 export default withSiteData(() => (
   <div className="Home">
     <section>
+      <svg viewBox="0 0 568 328" version="1.1">
+          <desc>Created with Sketch.</desc>
+          <defs></defs>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="Artboard" transform="translate(-62.000000, -132.000000)" fill="rgba(255,255,255,0.025)">
+                  <polygon id="Rectangle-Copy" transform="translate(346.000000, 296.000000) scale(-1, -1) translate(-346.000000, -296.000000) " points="630 132 630 460 62 460"></polygon>
+              </g>
+          </g>
+      </svg>
       <div>
-        <h1>Give Hair Today</h1>
+        <div className="title">
+          <span className="presents"><span className="loreal">L'OREAL Lab</span> Presents</span>
+          <h1>Give Hair Today</h1>
+        </div>
         <p>Use one of our new, miraculous products to simulataneously achieve a self-updating look and give to your favorite charity.</p>
+        <br/>
         <Button variant="raised" color="primary">
-          Call to Action
-      </Button>
+          <a href="#enroll">Enroll Today</a>
+        </Button>
+        <Button variant="raised" color="secondary">
+            Watch The Film
+        </Button>
       </div>
-      <img src="http://via.placeholder.com/400x500" width={400} height={500}/>
+      
+      <img src="/bottle.png" width={400} height={500}/>
+      <svg viewBox="0 0 568 328" version="1.1">
+          <defs></defs>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="Artboard" transform="translate(-62.000000, -132.000000)" fill="rgba(255,255,255,0.1)">
+                  <polygon id="Rectangle" points="630 132 630 460 62 460"></polygon>
+              </g>
+          </g>
+      </svg>
     </section>
+    <a name="enroll" />
     <section>
       <PagedForm />
     </section>
@@ -77,7 +103,7 @@ export default withSiteData(() => (
             </p>
           </div>
         </div>
-        <h1>100% Satisfaction Guaranteed!</h1>
+        <h2>100% Satisfaction Guaranteed!</h2>
       </div>
     </section>
   </div>

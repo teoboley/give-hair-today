@@ -48,3 +48,8 @@ p {
   color: rgba(255,255,255,0.75);
   letter-spacing: -0.26px;
 }
+
+button a {
+  text-decoration: none;
+  color: inherit;
+}
