@@ -53,3 +53,18 @@ button a {
   text-decoration: none;
   color: inherit;
 }
+
+.loader {
+  position: fixed;
+  left: -50px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  background-color: black;
+  transition: opacity 2s linear;
+}

@@ -1,5 +1,4 @@
 import React from 'react'
-import Lottie from 'react-lottie';
 import { withSiteData } from 'react-static'
 import Button from 'material-ui/Button';
 import Modal from 'react-modal';
@@ -7,21 +6,8 @@ import CloseIcon from 'material-ui-icons/Close';
 
 import PagedForm from "../components/PagedForm";
 
-import * as animationData from '../hair-animation.json';
 import "./Home.css";
 import "./About.css";
-
-const withLoader = (app) => {
-  /* <Lottie
-      options={{
-        loop: true,
-        autoplay: true, 
-        animationData: animationData
-      }}
-      height={800}
-      width={800}
-      /> */
-};
 
 type State = {
   showModal: boolean;
@@ -73,7 +59,7 @@ export default withSiteData(
               }
             }}
           >
-            <iframe src="https://drive.google.com/file/d/1lhFFoHqQvzTQmyPeI-jpEyfVGEHMV14M/preview" width="640" height="480"></iframe>
+            <iframe src="https://drive.google.com/file/d/1lhFFoHqQvzTQmyPeI-jpEyfVGEHMV14M/preview?auto-play=true" width="640" height="480"></iframe>
             <Button variant="fab" color="secondary" style={{ margin: 10 }} onClick={this.handleCloseModal}><CloseIcon /></Button>
           </Modal>
           <section>
