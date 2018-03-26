@@ -30,6 +30,7 @@ class App extends React.Component<any, State> {
     return (
       <div>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+          { typeof document !== 'undefined'  && 
           <div className="loader" style={ this.state.loading ? { opacity: 1 } : { opacity: 0, pointerEvents: "none" }}>
             <div style={{ visibility: this.state.loading ? "visible" : "hidden" }}>
             <Lottie
@@ -56,6 +57,7 @@ class App extends React.Component<any, State> {
             />
             </div>
           </div>
+          }
           <div>
             <Router>
               <div>
