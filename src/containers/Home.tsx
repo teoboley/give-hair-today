@@ -80,7 +80,7 @@ export default withSiteData(
     render() {
       return (
         <div className="Home">
-          { Loader != null && <Loader loading={this.state.loading} onComplete={() => this.setState({ loading: false })}/> }
+          { Loader != null && (window.location.href.indexOf("#") == -1) && <Loader loading={this.state.loading} onComplete={() => this.setState({ loading: false })}/> }
           <Modal
             isOpen={this.state.showModal}
             onRequestClose={this.handleCloseModal}
