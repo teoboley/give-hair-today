@@ -122,7 +122,7 @@ export default withSiteData(
                 <span className="presents"><span className="loreal">L'OREAL Lab</span> Presents</span>
                 <h1 style={{ color: "white" }}>Give Hair Today</h1>
               </div>
-              <p>Use one of our new, miraculous products to simulataneously achieve a self-updating look <span style={{ fontWeight: "bold" }}>and</span> give to your favorite charity*</p>
+              <p>Use one of our new, miraculous products to simultaneously achieve a self-updating look <span style={{ fontWeight: "bold" }}>and</span> give to your favorite charity*</p>
               <br />
               <Button variant="raised" color="primary">
                 <a href="#enroll">Enroll Today</a>
