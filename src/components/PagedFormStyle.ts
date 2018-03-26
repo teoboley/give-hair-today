@@ -10,15 +10,15 @@ export default (theme: Theme) => {
     root: {
       display: "flex",
       justifyContent: "center",
-      padding: 50
+      padding: 20
     },
     profile: {
       display: 'flex',
       alignItems: 'center'
     },
     form: {
-      marginLeft: 50,
-      maxWidth: 300
+      // marginLeft: 50,
+      maxWidth: 400
     },
     formControl: {
       margin: theme.spacing.unit / 2,
