@@ -199,6 +199,7 @@ export default withSiteData(
                   </p>
                 </div>
               </div>
+              <img src="/cruelty.png" width={300} height={300}/>
             </div>
           </section>
         </div>
