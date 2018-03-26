@@ -1,7 +1,7 @@
 import { Theme } from 'material-ui/styles';
 
 export default (theme: Theme) => {
-  const height = 32;
+  const tagHeight = 32;
 
   const backgroundColor =
     theme.palette.type === 'light' ? theme.palette.grey[300] : theme.palette.grey[700];
@@ -30,10 +30,10 @@ export default (theme: Theme) => {
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      height,
+      tagHeight,
       color: theme.palette.getContrastText(backgroundColor),
       backgroundColor,
-      borderRadius: height / 2,
+      borderRadius: tagHeight / 2,
       whiteSpace: 'nowrap',
       outline: 'none',
       border: 'none',
@@ -45,6 +45,9 @@ export default (theme: Theme) => {
     buttonBar: {
       display: "flex",
       justifyContent: "space-between"
+    },
+    progress: {
+      marginTop: 50,
     }
   };
 };

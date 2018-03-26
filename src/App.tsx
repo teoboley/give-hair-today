@@ -9,6 +9,8 @@ import './app.css'
 const App = () => (
   <div>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="conic-gradient.js"></script>
     <Router>
       <div>
         <CssBaseline />

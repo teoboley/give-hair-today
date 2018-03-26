@@ -36,9 +36,9 @@ export default withSiteData(() => (
       <div>
         <div className="title">
           <span className="presents"><span className="loreal">L'OREAL Lab</span> Presents</span>
-          <h1>Give Hair Today</h1>
+          <h1 style={{ color: "white" }}>Give Hair Today</h1>
         </div>
-        <p>Use one of our new, miraculous products to simulataneously achieve a self-updating look and give to your favorite charity.</p>
+        <p>Use one of our new, miraculous products to simulataneously achieve a self-updating look <span style={{ fontWeight: "bold" }}>and</span> give to your favorite charity*</p>
         <br/>
         <Button variant="raised" color="primary">
           <a href="#enroll">Enroll Today</a>
@@ -46,9 +46,14 @@ export default withSiteData(() => (
         <Button variant="raised" color="secondary">
             Watch The Film
         </Button>
+        <br/>
+        <div className="disclaimer">
+          <p>*Products sold by L'OREAL Lab do not contribute proceeds to charity, your returned hair is utilized as donated material.</p>
+        </div>
       </div>
       
-      <img src="/bottle.png" width={400} height={500}/>
+      <div style={{ width: 500, height: 500 }}/>
+      
       <svg viewBox="0 0 568 328" version="1.1">
           <defs></defs>
           <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -58,9 +63,16 @@ export default withSiteData(() => (
           </g>
       </svg>
     </section>
+    <div className="bottle"><img src="/bottle.png" width={400} height={500}/></div>
     <a name="enroll" />
     <section>
-      <PagedForm />
+      <div>
+        <h1 style={{ textAlign: "right" }} >Be a style pioneer, enroll now!</h1>
+        <div style={{ display: "flex" }}>
+          <img src="/fullview.png" width={400} height={500}/>
+          <PagedForm style={{ marginLeft: 20 }}/>
+        </div>
+      </div>
     </section>
     <section>
       <div>
@@ -69,7 +81,7 @@ export default withSiteData(() => (
           <div className="derma">
             <h2>Developed With Dermatologists</h2>
             <p>
-              In 2016, L’Oreals Labs developed a line of haircare products enriched
+              In 2016, L’Oreal Lab developed a line of haircare products enriched
               with a blend of vitamins, fatty acids, and other lipids to help repair
               and strengthen hair. The ratios of lipids to vitamins defines Give
               Hair’s key capacity of naturally causing hair loss in a certain time
@@ -103,7 +115,6 @@ export default withSiteData(() => (
             </p>
           </div>
         </div>
-        <h2>100% Satisfaction Guaranteed!</h2>
       </div>
     </section>
   </div>
